@@ -10,8 +10,8 @@ Aplicación web full-stack para gestionar tareas personales: crear, listar, edit
 
 **Demo en producción**
 
-- Frontend: `https://TU-FRONTEND.vercel.app`
-- API: `https://TU-BACKEND.vercel.app/api/tasks`
+- Frontend: https://client-ashen-alpha-26.vercel.app
+- API: https://server-nine-steel-29.vercel.app/api/tasks (estado: [/api/health](https://server-nine-steel-29.vercel.app/api/health))
 
 ---
 
@@ -86,8 +86,8 @@ Los errores siempre tienen la forma `{ "error": { "message": "...", "details": [
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/TU-USUARIO/gestor-tareas.git
-cd gestor-tareas
+git clone https://github.com/Polkka1/deber1.git
+cd deber1
 ```
 
 ### 2. Crear la base de datos en Supabase
@@ -149,23 +149,23 @@ Se crean **dos proyectos de Vercel** a partir del mismo repositorio, cada uno co
 ### Backend
 
 1. Vercel → **Add New… → Project** → importa el repositorio.
-2. **Root Directory:** `server` · **Framework Preset:** Express (se detecta solo).
+2. **Root Directory:** `server` · **Framework Preset:** `Express` (verifícalo: con *Other* el deploy termina pero responde 404).
 3. **Environment Variables:**
    - `SUPABASE_URL`
    - `SUPABASE_SECRET_KEY`
    - `CLIENT_ORIGIN` → de momento `*`; después, la URL del frontend
-4. **Deploy** y comprueba `https://TU-BACKEND.vercel.app/api/health`.
+4. **Deploy** y comprueba `https://server-nine-steel-29.vercel.app/api/health`.
 
 ### Frontend
 
 1. **Add New… → Project** → mismo repositorio.
 2. **Root Directory:** `client` · **Framework Preset:** Vite.
-3. **Environment Variables:** `VITE_API_URL` = `https://TU-BACKEND.vercel.app` (sin `/` al final).
+3. **Environment Variables:** `VITE_API_URL` = `https://server-nine-steel-29.vercel.app` (sin `/` al final).
 4. **Deploy**.
 
 ### Cerrar CORS
 
-En el proyecto del backend cambia `CLIENT_ORIGIN` a `https://TU-FRONTEND.vercel.app` y vuelve a desplegar (**Deployments → ⋯ → Redeploy**).
+En el proyecto del backend cambia `CLIENT_ORIGIN` a `https://client-ashen-alpha-26.vercel.app` y vuelve a desplegar (**Deployments → ⋯ → Redeploy**).
 
 > Las variables `VITE_*` se incrustan al compilar: si cambias `VITE_API_URL` hay que volver a desplegar el frontend.
 
